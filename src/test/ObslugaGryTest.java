@@ -38,5 +38,11 @@ public class ObslugaGryTest {
         game.guessLetter('B');
         assertTrue(game.isWon());
     }
+    @Test
+    public void przegranaPoWyczerpaniuZyc() {
+        Gra game = new Gra("cks");
+        for (char c : "qwertyuio".toCharArray()) game.guessLetter(c);
+        assertTrue(game.isLost());
+    }
 
 }
