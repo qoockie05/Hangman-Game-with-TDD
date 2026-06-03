@@ -2,6 +2,8 @@ package src.test;
 
 import org.junit.Test;
 import src.main.Wisielec;
+
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class WisielecTest {
@@ -10,7 +12,32 @@ public class WisielecTest {
         Wisielec wisielec = new Wisielec();
         String result = wisielec.writeHangedMan(0);
         assertTrue(result.contains("O"));
-        assertTrue(result.contains("/|\\"));  // to zadziała bo /|\\ jest w środku /|\\  |
-        assertTrue(result.contains("/ \\"));  // tak samo
+        assertTrue(result.contains("/|\\"));
+        assertTrue(result.contains("/ \\"));
+    }
+    @Test
+    public void pustyWisielec9Zyc(){
+        Wisielec wisielec = new Wisielec();
+        String result = wisielec.writeHangedMan(9);
+        assertTrue(result.contains("|"));
+        assertFalse(result.contains("O"));
+        assertFalse(result.contains("/|\\"));
+        assertFalse(result.contains("/ \\"));
+    }
+    @Test
+    public void nieprawidlowaWartoscZyc(){
+        Wisielec wisielec = new Wisielec();
+        String result = wisielec.writeHangedMan(-1);
+        assertFalse(result.contains("|"));
+        assertFalse(result.contains("O"));
+        assertFalse(result.contains("/|\\"));
+        assertFalse(result.contains("/ \\"));
+    }
+    @Test
+    public void wisielec8Zyc() {
+        Wisielec wisielec = new Wisielec();
+        String wynik = wisielec.writeHangedMan(8);
+        assertTrue(wynik.contains("O"));
+        assertFalse(wynik.contains("|  |"));
     }
 }
