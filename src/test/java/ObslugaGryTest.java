@@ -1,9 +1,15 @@
 
+import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ObslugaGryTest {
+    @BeforeEach
+    public void reset() {
+        Gra.resetWonNumber();
+    }
     @Test
     public void nowaGraMa9ZyC(){
         Gra gra = new Gra("cos");
@@ -85,4 +91,23 @@ public class ObslugaGryTest {
         gra.guessLetter('k');
         gra.pokazBilans();
     }
+    @Test
+    public void koniecIZwiekszenieLicznikaPrzyWygranej() {
+        int poprzedni = Gra.getWonNumber();
+        Gra gra = new Gra("ab");
+        gra.guessLetter('a');
+        gra.guessLetter('b');
+        gra.koniec();
+        assertEquals(poprzedni + 1, Gra.getWonNumber());
+    }
+
+    @Test
+    public void koniecINieZwiekszenieLicznikaPrzyWygranej() {
+        int poprzedni = Gra.getWonNumber();
+        Gra gra = new Gra("ab");
+        for (char c : "cdefghijk".toCharArray()) gra.guessLetter(c);
+        gra.koniec();
+        assertEquals(poprzedni, Gra.getWonNumber());
+    }
+
 }
