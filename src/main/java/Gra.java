@@ -62,7 +62,7 @@ public class Gra {
         }
     }
     public char[] getGuessedState() {
-        return null;
+        return this.guessedState;
     }
     public static int getWonNumber() {
         return wonNumber;
