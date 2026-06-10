@@ -86,6 +86,11 @@ public class Gra {
     }
 
     public void koniec() {
-
+        if (isWon()) {
+            System.out.println("Gratulacje! Odgadłeś hasło: " + secretWord);
+            updateWinCount();
+        } else if (isLost()) {
+            System.out.println("Przegrałaś! Hasło to: " + secretWord);
+        }
     }
 }

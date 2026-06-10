@@ -10,6 +10,10 @@ public class ObslugaGryTest {
     public void reset() {
         Gra.resetWonNumber();
     }
+    @BeforeEach
+    public void print() {
+        System.out.println();
+    }
     @Test
     public void nowaGraMa9ZyC(){
         Gra gra = new Gra("cos");
