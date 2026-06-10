@@ -1,10 +1,7 @@
-package src.test;
 
-import org.junit.Test;
-import src.main.Gra;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class ObslugaGryTest {
     @Test
@@ -59,6 +56,27 @@ public class ObslugaGryTest {
         game2.enterWord("ol");
         game2.updateWinCount();
         assertEquals(2, Gra.getWonNumber());
+    }
+    @Test
+    public void poczatkowyStanSamePodkreslenia() {
+        Gra gra = new Gra("kot");
+        char[] stan = gra.getGuessedState();
+        assertArrayEquals(new char[]{'_', '_', '_'}, stan);
+    }
+
+    @Test
+    public void stanAktualizujeSiePoPoprawnejLiterze() {
+        Gra gra = new Gra("kot");
+        gra.guessLetter('k');
+        assertEquals('K', gra.getGuessedState()[0]);
+        assertEquals('_', gra.getGuessedState()[1]);
+    }
+
+    @Test
+    public void stanNieZmieniasiePoBlednejLiterze() {
+        Gra gra = new Gra("kot");
+        gra.guessLetter('z');
+        assertArrayEquals(new char[]{'_', '_', '_'}, gra.getGuessedState());
     }
 
 }

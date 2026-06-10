@@ -1,5 +1,3 @@
-package src.main;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -35,11 +33,11 @@ public class Gra {
         if(!isFound) lives--;
     }
     public boolean isWon(){
-        if(!usedLetters.contains('_')){
-            System.out.println("Wygrałeś partię, stan pozostalych wygranych: "+ Gra.getWonNumber());
-            return true;
+        for (char c : guessedState) {
+            if (c == '_') return false;
         }
-        return false;
+        System.out.println("Wygrałeś partię, stan pozostalych wygranych: "+ Gra.getWonNumber());
+        return true;
     }
     public boolean enterWord(String word){
         if(word.equalsIgnoreCase(secretWord)) {
@@ -62,6 +60,9 @@ public class Gra {
         if (isWon()) {
             wonNumber++;
         }
+    }
+    public char[] getGuessedState() {
+        return null;
     }
     public static int getWonNumber() {
         return wonNumber;

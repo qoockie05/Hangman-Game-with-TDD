@@ -1,5 +1,3 @@
-package src.main;
-
 public class Wisielec {
 
     public String rysujWisielca(int lives) {
