@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Menu menu = new Menu();
+        Slowa slowa = new Slowa();
         boolean czyGraTrwa = true;
 
         while (czyGraTrwa) {
@@ -18,7 +19,6 @@ public class Main {
                     Gracz gracz = new Gracz();
                     gracz.wczytajNick();
 
-                    Slowa slowa = new Slowa();
                     String tajneSlowo = slowa.losujSlowo();
 
                     Gra gra = new Gra(tajneSlowo);
@@ -54,12 +54,65 @@ public class Main {
                         if (czyOdgatniete || gra.isLost()) {
                             partiaZakonczona = true;
                             System.out.println(wisielec.rysujWisielca(gra.getLives()));
-                            gra.koniec();
+                            if (czyOdgatniete) {
+                                gra.updateWinCount();
+                            }
+                            else {
+                                System.out.println("Przegrałeś! Hasło to: " + tajneSlowo);
+                            }
                         }
                     }
                 }
 
-                case 2 -> System.out.println("-> (zarządzanie słownikiem)");
+                case 2 -> {
+                    boolean czyZarzadzanieTrwa = true;
+                    while (czyZarzadzanieTrwa) {
+                        System.out.println("\n--- ZARZĄDZANIE SŁOWNIKIEM ---");
+                        System.out.println("1. Wyświetl wszystkie słowa");
+                        System.out.println("2. Dodaj nowe słowo");
+                        System.out.println("3. Usuń słowo");
+                        System.out.println("4. Powrót do menu głównego");
+                        System.out.print("Twój wybór: ");
+
+                        String opcjaSlownika = scanner.nextLine().trim();
+
+                        switch(opcjaSlownika) {
+                            case "1" -> {
+                                System.out.println("\nAktualne słowa w bazie:");
+                                // TODO 1: do wywołania metoda wyświetlająca wszystkie słowa
+                            }
+                            case "2" -> {
+                                System.out.print("\nPodaj nowe słowo do dodania: ");
+                                String noweSlowo = scanner.nextLine().trim().toLowerCase();
+
+                                if (noweSlowo.isEmpty()) {
+                                    System.out.println("Błąd! Nie wpisano słowa.");
+                                }
+                                else if (!noweSlowo.matches("[a-zżźćńółęą]+")) {
+                                    System.out.println("Błąd! Słowo może zawierać tylko polskie litery.");
+                                }
+                                else {
+                                    // TODO 2: do wywołania metoda dodająca
+                                }
+                            }
+                            case "3" -> {
+                                System.out.print("\nPodaj słowo, które chcesz usunąć: ");
+                                String slowoDoUsuniecia = scanner.nextLine().trim().toLowerCase();
+
+                                if (slowoDoUsuniecia.isEmpty()) {
+                                    System.out.println("Błąd! Nie wpisano słowa.");
+                                }
+                                else {
+                                    // TODO 3: do wywołania metoda usuwająca
+                                }
+                            }
+                            case "4" -> {
+                                czyZarzadzanieTrwa = false;
+                            }
+                            default -> System.out.println("Błąd! Wybierz opcję od 1 do 4.");
+                        }
+                    }
+                }
                 case 3 -> {
                     System.out.println("Zamykanie gry. Do zobaczenia!");
                     czyGraTrwa = false;
