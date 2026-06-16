@@ -13,6 +13,7 @@ public class Menu {
     }
 
     public int przetworzWybor(String input) {
+        if (input == null) return -1;
         try {
             int choice = Integer.parseInt(input.trim());
             if (choice >= 1 && choice <= 3) {
