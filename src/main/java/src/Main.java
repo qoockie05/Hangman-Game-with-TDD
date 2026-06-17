@@ -92,7 +92,12 @@ public class Main {
                                     System.out.println("Błąd! Słowo może zawierać tylko polskie litery.");
                                 }
                                 else {
-                                    // TODO 2: do wywołania metoda dodająca
+                                    boolean dodano = slowa.dodajSlowo(noweSlowo);
+                                    if (dodano) {
+                                        System.out.println("Sukces! Dodano słowo: " + noweSlowo);
+                                    } else {
+                                        System.out.println("Błąd! Słowo '" + noweSlowo + "' już istnieje w bazie.");
+                                    }
                                 }
                             }
                             case "3" -> {
