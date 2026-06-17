@@ -1,8 +1,12 @@
-import org.junit.jupiter.api.Test;
-import java.io.ByteArrayInputStream;
-import static org.junit.jupiter.api.Assertions.*;
+package src;
 
-public class Test_gracz {
+import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayInputStream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class GraczTest {
 
     @Test
     void powinnoWczytacPoprawnyNick() {

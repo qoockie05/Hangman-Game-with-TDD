@@ -40,4 +40,10 @@ public class MenuTest {
         Menu menu = new Menu();
         assertEquals(-1, menu.przetworzWybor(""));
     }
+
+    @Test
+    public void blednyWyborNull() {
+        Menu menu = new Menu();
+        assertEquals(-1, menu.przetworzWybor(null));
+    }
 }
