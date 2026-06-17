@@ -27,4 +27,8 @@ public class Slowa {
     public boolean czyZawiera(String slowo) {
         return listaSlow.contains(slowo);
     }
+
+    public boolean usunSlowo(String slowo) { 
+        return listaSlow.remove(slowo);  
+    } 
 }

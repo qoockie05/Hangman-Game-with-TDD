@@ -57,4 +57,15 @@ public class SlowaTest {
         boolean czyDodanoPonownie = slowa.dodajSlowo("metoda");
         assertFalse(czyDodanoPonownie);
     }
+
+    @Test 
+
+    void powinnoUsunacIstniejaceSlowo() { 
+        Slowa slowa = new Slowa(); 
+        assertTrue(slowa.czyZawiera("java")); // Sprawdza czy "java" jest domyślnie w bazie 
+        boolean czyUsunieto = slowa.usunSlowo("java"); 
+        assertTrue(czyUsunieto); 
+        assertFalse(slowa.czyZawiera("java")); 
+
+    } 
 }
