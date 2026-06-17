@@ -49,4 +49,12 @@ public class SlowaTest {
         assertTrue(czyDodano);
         assertTrue(slowa.czyZawiera("interfejs"));
     }
+    @Test
+
+    void niePowinnoDodacZdublowanegoSlowa() {
+        Slowa slowa = new Slowa();
+        slowa.dodajSlowo("metoda");
+        boolean czyDodanoPonownie = slowa.dodajSlowo("metoda");
+        assertFalse(czyDodanoPonownie);
+    }
 }

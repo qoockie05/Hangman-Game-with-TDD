@@ -17,9 +17,11 @@ public class Slowa {
 
     }
     public boolean dodajSlowo(String slowo) {
-        listaSlow.add(slowo);
-        return true;
-
+        if (!listaSlow.contains(slowo)) {
+            listaSlow.add(slowo);
+            return true; // Sukces
+        }
+        return false; // Słowo już istnieje
     }
 
     public boolean czyZawiera(String slowo) {
