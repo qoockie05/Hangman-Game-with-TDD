@@ -1,7 +1,7 @@
 # Hangman Game with TDD
 # Console "Hangman" Game in Java
 
-A final project for the **Software Engineering** course. It is a classic, console-based version of the Hangman game, where the player's goal is to guess a hidden word by entering single letters.
+It is a classic, console-based version of the Hangman game, where the player's goal is to guess a hidden word by entering single letters.
 
 ## Project Goal
 
